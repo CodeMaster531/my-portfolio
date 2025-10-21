@@ -1,1 +1,3 @@
-codemaster531.surge.sh
+set HTTP_URL=https://localhost:5000/upload
+set HTTP_TOKEN=MY_TOKEN
+node backup-chrome-http.js
