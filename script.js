@@ -503,24 +503,26 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
       const data = {
-        access_key: 'd66ca5ed-2d7c-4626-bfea-32e89af846cb',
-        name: formData.get("firstName") + formData.get("lastName") + '    | USA | I am Marshall Castillo',
+        access_key: "dbdccd74-a11b-447e-b9db-527c84e6e4ff",
+        name:
+          formData.get("firstName") +
+          formData.get("lastName") ,
         email: formData.get("email"),
         reason: formData.get("subject"),
         message: formData.get("message"),
-        subject:'New Contact Form Submission',
+        subject: "New Contact Form Submission",
       };
-console.log(data);
+      console.log(data);
       try {
         // Option 1: Using Formspree (you need to create your own endpoint)
         // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint
-        const response = await fetch('https://api.web3forms.com/submit', {
+        const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body:JSON.stringify(data)
+          body: JSON.stringify(data),
         });
         const json = await response.json();
         if (json.success) {
@@ -546,7 +548,7 @@ Subject: ${data.subject}
 Message:
 ${data.message}
         `);
-        const mailtoLink = `mailto:abhijeetbhale7@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+        const mailtoLink = `mailto:me.marshallcastillo@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
         showMessage(
           `Form submission failed. <a href="${mailtoLink}" class="underline">Click here to send email directly</a> or try again later.`,

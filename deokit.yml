@@ -1,0 +1,25 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - main   # Change if your main branch has a different name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Surge
+        run: npm install --global surge
+
+      - name: Deploy to Surge
+        run: surge ./ codemaster531.surge.sh --token ${{ secrets.SURGE_TOKEN }}
